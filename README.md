@@ -3,6 +3,12 @@
 ## Description
 - PNG file of the diagram created for exercises of Modelisation_BDD
 
-## Diagram
+## Diagram 1st try
 
-![Diagram](assets/diagram.png)
+![Diagram](assets/diagram_1.png)
+
+
+## Diagram 2nd try
+
+
+![Diagram](assets/diagram_2.png)
