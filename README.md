@@ -12,3 +12,8 @@
 
 
 ![Diagram](assets/diagram_2.png)
+
+## Diagram 3th try
+
+
+![Diagram](assets/diagram_3.png)
