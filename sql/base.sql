@@ -64,6 +64,7 @@ CREATE TABLE Reservation
   travel   INTEGER NOT NULL,
   client   INTEGER NOT NULL,
   payment  INTEGER NOT NULL,
+  res_status ENUM('paid', 'unpaid', 'stand-by') NOT NULL DEFAULT 'stand-by',
   PRIMARY KEY (res_id)
 );
 
