@@ -50,7 +50,7 @@ CREATE TABLE Destination
 CREATE TABLE Payment
 (
   pay_id      INTEGER     NOT NULL AUTO_INCREMENT,
-  pay_type    VARCHAR(50) NULL     DEFAULT NULL,
+  pay_type    ENUM('credit-card', 'bank-transfer', 'money') NULL DEFAULT NULL,
   pay_status  BOOLEAN     NOT NULL DEFAULT FALSE,
   pay_date    DATE        NULL     DEFAULT NULL,
   total_price FLOAT       NOT NULL,
@@ -88,42 +88,51 @@ CREATE TABLE Vehicle
   PRIMARY KEY (veh_id)
 );
 
+/* Lors de l'exercice 4 ajouter la supression en cascade */
 ALTER TABLE Reservation
   ADD CONSTRAINT FK_TravelAgency_TO_Reservation
     FOREIGN KEY (travel)
-    REFERENCES TravelAgency (travel_id);
+    REFERENCES TravelAgency (travel_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE Reservation
   ADD CONSTRAINT FK_Client_TO_Reservation
     FOREIGN KEY (client)
-    REFERENCES Client (cl_id);
+    REFERENCES Client (cl_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE Reservation
   ADD CONSTRAINT FK_Payment_TO_Reservation
     FOREIGN KEY (payment)
-    REFERENCES Payment (pay_id);
+    REFERENCES Payment (pay_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE TravelAgency
   ADD CONSTRAINT FK_Contact_TO_TravelAgency
     FOREIGN KEY (contact)
-    REFERENCES Contact (cont_id);
+    REFERENCES Contact (cont_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE TravelAgency
   ADD CONSTRAINT FK_Company_TO_TravelAgency
     FOREIGN KEY (transport)
-    REFERENCES Company (comp_id);
+    REFERENCES Company (comp_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE TravelAgency
   ADD CONSTRAINT FK_Destination_TO_TravelAgency
     FOREIGN KEY (destination)
-    REFERENCES Destination (destination_id);
+    REFERENCES Destination (destination_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE Company
   ADD CONSTRAINT FK_Vehicle_TO_Company
     FOREIGN KEY (transport_mode)
-    REFERENCES Vehicle (veh_id);
+    REFERENCES Vehicle (veh_id)
+  ON DELETE CASCADE;
 
 ALTER TABLE Destination
   ADD CONSTRAINT FK_Accomodation_TO_Destination
     FOREIGN KEY (accomodation)
-    REFERENCES Accomodation (accom_id);
+    REFERENCES Accomodation (accom_id)
+  ON DELETE CASCADE;

@@ -5,7 +5,6 @@ UPDATE `client`
 			cl_dob = '1992-01-07',
 			cl_adress = '64, Chaussée de Bruxelles, Jumet, 6040, Belgium'
 	WHERE cl_id = '2'
-
 ;
 
 /* Mettre à jour le statut d’une réservation (confirmée, annulée, en attente). 
@@ -20,21 +19,22 @@ UPDATE `reservation`
 ;
 
 /* Changer les détails d’un voyage (prix, nombre de places disponibles). */
-UPDATE reservation res
-	INNER JOIN travelagency tra
+UPDATE `reservation` res
+	INNER JOIN `travelagency` tra
 	    ON res.travel = tra.travel_id
-	INNER JOIN payment pay
+	INNER JOIN `payment` pay
 	    ON res.payment = pay.pay_id
-	INNER JOIN destination dest
+	INNER JOIN `destination` dest
 	    ON tra.destination = dest.destination_id
-	INNER JOIN accomodation acc
+	INNER JOIN `accomodation` acc
 	    ON dest.accomodation = acc.accom_id
-	INNER JOIN company comp
+	INNER JOIN `company` comp
 	    ON tra.transport = comp.comp_id
-	INNER JOIN vehicle veh
-    ON comp.transport_mode = veh.veh_id
+	INNER JOIN `vehicle` veh
+    	ON comp.transport_mode = veh.veh_id
    
 	SET	acc.limit_rooms = '25',
-			pay.total_price = '1820.65'
+		acc.accom_price = '799.50',
+		veh.transport_price = '385.5'
 	WHERE tra.travel_id = '1'
 ;

@@ -92,7 +92,7 @@ VALUES
   ('2', '10', '11', '64.25')
 ;
 
-INSERT INTO Payment (pay_type, pay_status, pay_date, total_price)
+INSERT INTO `payment` (pay_type, pay_status, pay_date, total_price)
 VALUES
     (
         DEFAULT,
@@ -100,14 +100,14 @@ VALUES
         DEFAULT, 
         (
             SELECT agency_price + accom_price + transport_price
-              FROM TravelAgency
-            JOIN Destination
-              ON TravelAgency.destination = Destination.destination_id
-            JOIN Accomodation
-              ON Destination.accomodation = Accomodation.accom_id
-            JOIN Vehicle
-              ON TravelAgency.transport = Vehicle.veh_id
-            WHERE TravelAgency.travel_id = 1
+              FROM `travelagency` tra 
+            JOIN `destination` dest
+              ON tra.destination = dest.destination_id
+            JOIN `accomodation` acc
+              ON dest.accomodation = acc.accom_id
+            JOIN `vehicle` veh
+              ON tra.transport = veh.veh_id
+            WHERE tra.travel_id = "1"
         )
     ),
     (
@@ -116,14 +116,14 @@ VALUES
         '2025-04-14',
         (
             SELECT agency_price + accom_price + transport_price
-              FROM TravelAgency
-            JOIN Destination
-              ON TravelAgency.destination = Destination.destination_id
-            JOIN Accomodation
-              ON Destination.accomodation = Accomodation.accom_id
-            JOIN Vehicle
-              ON TravelAgency.transport = Vehicle.veh_id
-            WHERE TravelAgency.travel_id = 2
+              FROM `travelagency` tra 
+            JOIN `destination` dest
+              ON tra.destination = dest.destination_id
+            JOIN `accomodation` acc
+              ON dest.accomodation = acc.accom_id
+            JOIN `vehicle` veh
+              ON tra.transport = veh.veh_id
+            WHERE tra.travel_id = "2"
         )
     ),
     (
@@ -132,14 +132,14 @@ VALUES
         '2025-04-14',
         (
             SELECT agency_price + accom_price + transport_price
-              FROM TravelAgency
-            JOIN Destination
-              ON TravelAgency.destination = Destination.destination_id
-            JOIN Accomodation
-              ON Destination.accomodation = Accomodation.accom_id
-            JOIN Vehicle
-              ON TravelAgency.transport = Vehicle.veh_id
-            WHERE TravelAgency.travel_id = 3
+              FROM `travelagency` tra 
+            JOIN `destination` dest
+              ON tra.destination = dest.destination_id
+            JOIN `accomodation` acc
+              ON dest.accomodation = acc.accom_id
+            JOIN `vehicle` veh
+              ON tra.transport = veh.veh_id
+            WHERE tra.travel_id = "3"
         )
     ),
     (
@@ -148,19 +148,19 @@ VALUES
         DEFAULT, 
         (
             SELECT agency_price + accom_price + transport_price
-              FROM TravelAgency
-            JOIN Destination
-              ON TravelAgency.destination = Destination.destination_id
-            JOIN Accomodation
-              ON Destination.accomodation = Accomodation.accom_id
-            JOIN Vehicle
-              ON TravelAgency.transport = Vehicle.veh_id
-            WHERE TravelAgency.travel_id = 4
+              FROM `travelagency` tra 
+            JOIN `destination` dest
+              ON tra.destination = dest.destination_id
+            JOIN `accomodation` acc
+              ON dest.accomodation = acc.accom_id
+            JOIN `vehicle` veh
+              ON tra.transport = veh.veh_id
+            WHERE tra.travel_id = "4"
         )
     )
 ;
 
-INSERT INTO Reservation
+INSERT INTO `reservation`
   (res_date, travel, client, payment, res_status)
 VALUES
   ('2025-04-11', '1', '3', '1', DEFAULT),
