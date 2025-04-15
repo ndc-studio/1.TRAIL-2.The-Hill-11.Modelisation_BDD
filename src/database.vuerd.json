@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -489.0001,
-    "scrollLeft": 0,
-    "zoomLevel": 1,
+    "scrollTop": -615.0891,
+    "scrollLeft": -168,
+    "zoomLevel": 0.85,
     "show": 508,
     "database": 4,
     "databaseName": "",
@@ -382,15 +382,15 @@
           "iT7UJ5yMezQFqcsl68-WP"
         ],
         "ui": {
-          "x": 1352.1349,
-          "y": 1025,
+          "x": 1361.5466,
+          "y": 1036.7647,
           "zIndex": 565,
           "widthName": 60,
           "widthComment": 60,
           "color": "#00BCD4"
         },
         "meta": {
-          "updateAt": 1744635351944,
+          "updateAt": 1744701826441,
           "createAt": 1744634567156
         }
       }
@@ -2660,8 +2660,8 @@
           "columnIds": [
             "OrtBAjiTNiydSoK4iH1f_"
           ],
-          "x": 1546.1349,
-          "y": 1025,
+          "x": 1555.5466,
+          "y": 1036.7647,
           "direction": 4
         },
         "end": {
